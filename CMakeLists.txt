@@ -14,6 +14,7 @@ pico_sdk_init()
 
 add_executable(BMP280
     src/main.cpp
+    src/BMP280/BMP280.cpp
 )
 
 target_link_libraries(BMP280
