@@ -1,8 +1,22 @@
 #include <iostream>
 #include "pico/stdlib.h"
 #include "BMP280/BMP280.h"
+#include "hardware/i2c.h"
 
-int main(int argc, char * argv[])
+#define I2C_PORT i2c0
+
+int main(void)
 {
-    return 0;
+    stdio_init_all();
+
+    BMP280 bmp(4, 5);
+
+    int32_t temp = bmp.getTemp();
+
+    while (1)
+    {
+        temp = bmp.getTemp();
+        printf("%.2f\n", temp / 100.00);
+        sleep_ms(1000);
+    }
 }
