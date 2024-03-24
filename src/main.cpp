@@ -9,7 +9,7 @@ int main(void)
 {
     stdio_init_all();
 
-    BMP280 bmp(4, 5);
+    BMP280 bmp(I2C_PORT, 4, 5);
 
     int32_t temp = bmp.getTemp();
 
